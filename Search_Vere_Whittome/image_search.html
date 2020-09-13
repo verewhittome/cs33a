@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Search</title>
+        <link href='./image_search.css' rel='stylesheet'>
+    </head>
+    <body>
+        <nav>
+          <a class='nav_element' href='./index.html'>Google Search</a>
+          <a class='nav_element' href='./advanced_search.html'>Advanced Search</a>
+        </nav>
+
+        <div id='logo_div'>
+          <img id='logo' src='./images_logo.png'>
+        </div>
+
+        <form action="https://google.com/search?tbm=isch&">
+            <input type='hidden' value='isch' name='tbm'>
+            <div class="center" id='search_bar_div'>
+              <input id='search_bar' type="text" name="q">
+            </div>
+
+            <div class="center" id='search_button_div'>
+              <input id='search_button' type="submit" value="Google Search">
+            </div>
+        </form>
+    </body>

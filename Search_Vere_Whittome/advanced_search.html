@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Search</title>
+        <link rel="stylesheet" href="./advanced_search.css">
+
+    </head>
+    <body>
+        <div id='header_div'>
+          <div id='logo_div'>
+            <img id='logo' src='https://ssl.gstatic.com/gb/images/i1_1967ca6a.png'>
+          </div>
+
+          <div id='nav'>
+            <nav>
+              <a href='./image_search.html'>Image Search</a>
+              <a href='./index.html'>Google Search</a>
+            </nav>
+          </div>
+        </div>
+
+        <div id='title'>
+          <p>Advanced Search</p>
+        </div>
+
+        <div class='divider'>
+        </div>
+
+        <div id=advanced_form>
+          <form action="https://google.com/search?tbm=isch&">
+              <div id='subtitle'>
+                <p> Find pages with... </p>
+              </div>
+
+              <div class='input_row'>
+                <div class='input_label'>
+                  <label for='all_these_words'> all these words:</label>
+                </div>
+
+                <div class='input_div'>
+                  <input id='all_these_words' class='advanced_input' type='text' name='as_q' title='all these words'>
+                </div>
+              </div>
+
+              <div class='input_row'>
+                <div class='input_label'>
+                  <label for='this_exact_phrase'> this exact phrase:</label>
+                </div>
+
+                <div class='input_div'>
+                  <input id='this_exact_phrase' class='advanced_input' type='text' name='as_epq' title='this exact word or phrase'>
+                </div>
+              </div>
+
+              <div class='input_row'>
+                <div class='input_label'>
+                  <label for='any_of_these_words'> any of these words:</label>
+                </div>
+
+                <div class='input_div'>
+                  <input id='any_of_these_words' class='advanced_input' type='text' name='as_oq' title='any of these words'>
+                </div>
+              </div>
+
+              <div class='input_row'>
+                <div  class='input_label'>
+                  <label for='none_of_these_words'> none of these words:</label>
+                  </div>
+                <div class='input_div'>
+                  <input id='none_of_these_words' class='advanced_input' type='text' name='as_eq' title='none of these words'>
+                </div>
+              </div>
+
+              <div class='input_row'>
+                <div class='input_label'>
+              </div>
+
+                <div class='button_input'>
+                    <input id='search_button' type="submit" value="Advanced Search">
+                </div>
+
+          </form>
+        </div>
+        <div class='divider'>
+        </div>
+    </body>
+</html>
