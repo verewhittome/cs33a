@@ -1,0 +1,194 @@
+body {
+    padding: 10px;
+	background-color:blue;
+}
+
+.listings-container {
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.listing-item {
+	width: 1000px;
+	list-style-type: none;
+ 	margin-bottom: 50px;
+	padding: 50px;
+ 	border: 2px solid Gainsboro;
+ 	border-radius: 25px;
+	display: flex;
+	flex-direction: row;
+
+	justify-content: space-between;
+	
+}
+
+.properties-container{
+	color = red;
+	margin-right: 100px;
+
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.listing-title{
+
+	padding: 20px
+}
+
+.listing-description{
+	color: grey;
+	padding: 10px
+}
+
+.listing-bid{
+	color: grey;
+	padding: 10px
+}
+
+.listing-category{
+	color: grey;
+	padding: 10px
+}
+
+.listing-view{
+	width: 100%;
+	padding: 50px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	
+}
+
+.watchlist-container{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	
+}
+
+.watchlist-container button {
+  border-radius: 12px;
+  padding: 10px;
+  background-color: white;
+  color: #008CBA;
+  border: 2px solid #008CBA; /* Blue */
+  transition-duration: 0.4s;
+}
+
+.watchlist-container button:hover {
+  background-color: #008CBA; /* Blue */
+  color: white;
+}
+.messages{
+
+	list-style-type: none;
+	color: white;
+	text-align: center;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.bid-container{
+	margin: 5px 0px 30px 0px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	
+}
+
+.listing-text-field{
+	margin-bottom:20px;
+	border-radius: 5px;
+	margin-right: 10px;
+	
+}
+
+.listing-button{
+	border-radius: 12px;
+
+	padding: 5px 10px 5px 10px;
+	background-color: white;
+	color: grey;
+	border: 2px solid grey; /* Blue */
+	transition-duration: 0.4s;
+	
+}
+
+.listing-button:hover {
+  background-color: grey; /* Blue */
+  color: white;
+}
+
+.close-listing{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+}
+
+
+.listing-img {
+	width: 500px;
+	border-radius: 25px;
+}
+
+.comments-container{
+	margin: 5px 0px 30px 0px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	
+}
+
+.comments-form{
+	margin: 5px 0px 30px 0px;
+	display: flex;
+
+	align-items: center;
+	justify-content: center;
+	
+}
+
+.comments-list-container{
+	
+}
+
+.comments-list{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-around;
+	margin-right:200px;
+}
+
+.comments-item {
+	padding:20px;
+	list-style-type: none;
+}
+
+.new-listing-form{
+	margin-top: 50px;
+	margin-left: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-around;
+}
+
+#closed-listing-message{
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+}

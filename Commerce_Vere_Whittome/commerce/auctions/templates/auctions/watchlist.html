@@ -1,0 +1,15 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+{% if watchlist %}
+
+	<ul>	
+		{% for listing in watchlist %}
+			{% include 'auctions/listing_template.html' %} 	
+		{% endfor %}
+	</ul>
+{% else %}
+	<h2> Nothing in the watchlist yet! </h2>
+{% endif %}
+{% endblock %}

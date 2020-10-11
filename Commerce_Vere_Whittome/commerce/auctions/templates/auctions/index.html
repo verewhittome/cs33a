@@ -1,0 +1,14 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Active Listings</h2>
+	 
+	<ul class="listings-container">
+    {% for listing in listings %}
+		{% include 'auctions/listing_template.html' %} 		
+	{% endfor %}
+	</ul>
+
+
+
+{% endblock %}

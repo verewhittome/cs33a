@@ -1,0 +1,44 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+{% if watchlist %}
+
+	<ul>	
+		{% for listing in watchlist %}
+
+		<a href="{% url 'listing_view' listing.pk %}">
+			<div>
+			<li class="listing-item"> 
+				<div class="properties-container">
+					<h2> {{ listing.title }} </h2>
+					<p> {{ listing.description }} </p>
+					
+					{% if listing.bids.all %}
+						{% for bid in listing.bids.all %}
+						<p> Bid: {{ bid.bid_price }} </p>
+						{% endfor %}
+					{% else %}
+						<p> Initial: {{ listing.initial_bid }} </p>
+					{% endif %}	
+
+					{% for category in categories %}
+						{% if category.0 == listing.category %}
+							<p> Category : {{ category.1 }} </p>
+						{% endif %}
+					{% endfor %}
+				</div>
+				<div class="image-container">
+					<img src="{{ listing.url }}" class="listing-img">
+				</div>
+			</li>
+			</div>
+		</a>
+
+
+		{% endfor %}
+	</ul>
+{% else %}
+	<h2> Nothing in the watchlist yet! </h2>
+{% endif %}
+{% endblock %}

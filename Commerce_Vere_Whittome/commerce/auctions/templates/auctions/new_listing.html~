@@ -1,0 +1,40 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Add a Listing</h2>
+
+    <form action="{% url 'add_listing' %}" method="post" class="new-listing-form flex-container-col">
+		{% csrf_token %}
+		<div>
+			<h6> Title : </h6>
+			<input type='text' name='title' class="listing-text-field">
+		</div>
+
+		<div>		
+			<h6> Description : </h6>		
+			<textarea name='description' class="listing-text-field">Description </textarea>
+		</div>	
+
+		<div>		
+			<h6> Inital bid : </h6>		
+			<input type="number" required name="bid_price" min="0" value="0" step="0.01" class="listing-text-field">
+		</div>			
+
+		<div>		
+			<h6> Url : </h6>		
+			<input type="url" name="url" class="listing-text-field">
+		</div>	
+
+
+		<div>		
+			<h6> Category : </h6>		
+			<select name="category" class="listing-text-field">
+				{% for category in categories %}
+					<option value="{{ category.0 }}" >{{category.1}}</option>
+				{% endfor %}
+			</select>
+		</div>	
+		
+		<input type='submit' class="listing-button">
+	</form>
+{% endblock %}

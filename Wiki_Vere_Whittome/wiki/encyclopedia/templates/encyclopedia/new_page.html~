@@ -1,0 +1,12 @@
+{% extends "encyclopedia/layout.html" %}
+
+
+
+{% block body %}
+ <form action="{% url 'encyclopedia:new_page' %}" method='post'>
+ 	{{ form }}
+	<input type='submit'></submit>
+ </form>
+
+
+{% endblock %}

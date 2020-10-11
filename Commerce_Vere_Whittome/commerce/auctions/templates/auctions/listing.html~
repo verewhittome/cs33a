@@ -1,0 +1,113 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+	{% if listing.closed %}
+	<div id="listing-closed-message">
+		{% if user == bid.user %}
+			<h3> YOU WON THIS LISTING :) </h3>
+		{% else %}
+			<h3> This listing is closed </h3>
+		{% endif %}
+	</div>
+
+	{% endif %}
+	<div class='listing-view'>	
+		<div class="properties-container">
+
+			<h2 class="listing-title">{{ listing.title }}</h2>
+			<p class="listing-description"> {{ listing.description }} </p>
+			{% if bid %}
+				<p class="listing-bid"> Bid: ${{ bid.bid_price }} </p>
+			{% else %}
+				<p class="listing-bid"> Initial: ${{ listing.initial_bid }} </p>
+			{% endif %}	
+
+			{% for category in categories %}
+				{% if category.0 == listing.category %}
+					<p class="listing-category"> Category : {{ category.1 }} </p>
+				{% endif %}
+			{% endfor %}
+
+		</div>
+		
+		<div class="image-container">
+				<img src="{{ listing.url }}" class="listing-img">
+		</div>
+		
+	</div>
+
+	<div class="watchlist-container">
+		
+		{% if user not in watchlist and user != listing.user and not listing.closed %}
+			<form action="{% url 'add_to_watchlist' %}" method="post">
+			{% csrf_token %}
+				<button name="listing_id" value="{{ listing.pk }}">Add to watchlist </button>
+			</form>
+		{% endif %}
+
+		{% if user in watchlist and not listing.closed %}
+			<form action="{% url 'remove_from_watchlist'%}" method="post">
+			{% csrf_token %}
+				<button name="listing_id" value="{{ listing.pk }}">Remove from watchlist </button>
+			</form>
+		{% endif %}
+
+	</div>
+	
+
+	
+	{% if user != listing.user and listing.closed == False %}
+		<h5 style="text-align:center; margin-top:50px;"> Submit Bid </h5>
+		<div class="bid-container">
+			<form action="{% url 'submit_bid'%}" method="post">
+			{% csrf_token %}
+				<input type='decimal' name="bid_price" class="listing-text-field">
+				<button name="listing_id" value="{{ listing.pk }}" class="listing-button">Bid </button>
+			</form>
+		</div>		
+	{% endif %}
+	
+	
+
+	{% if messages %}
+	<ul class="messages">
+		{% for message in messages %}
+		<li{% if message.tags %} class="{{ message.tags }}"{% endif %} style="width:50%;background-color:red;">{{ message }}</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+	
+	{% if user == listing.user and not listing.closed %}
+		<form action="{% url 'close_listing'%}" method="post" class="close-listing">
+		{% csrf_token %}
+			<button name="listing_id" value="{{ listing.pk }}" class="listing-button">Close listing </button>
+		</form>
+	{% endif %}
+
+
+	<h5 style="text-align:center; margin-top:50px;"> Comments </h5>	
+	
+	<div class="comments-container">	
+		<div >
+			<form action="{% url 'write_comment'%}" method="post" class="comments-form">
+			{% csrf_token %}
+				<textarea name='comment' class="listing-text-field"> Write Comment </textarea>
+				<button name="listing_id" value="{{ listing.pk }}" class="listing-button"> Post Comment </button>
+			</form>
+		</div>
+		<div class="comments-list-container">
+			<ul class="comments-list">
+				{% for comment in comments %}
+				<li class="comments-item">
+					<h5>{{ comment.user }} </h5>
+					<p> {{ comment.comment }} </p>
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+
+	</div>
+
+
+{% endblock %}
